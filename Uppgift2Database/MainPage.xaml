@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="Uppgift2Database.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Uppgift2Database"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <NavigationView Name="NavNiew" SelectionChanged="NavNiew_SelectionChanged" Loaded="NavNiew_Loaded">
+            <NavigationView.MenuItems>
+                <NavigationViewItemHeader   Content="Create"/>
+                <NavigationViewItem Icon="NewFolder" Content="Create an Issue" Tag="Issue"/>
+                <NavigationViewItemHeader Content="Load Issues"/>
+                <NavigationViewItem Icon="List"  Content="Active Issues" Tag="Active"/>
+                <NavigationViewItem Icon="ClosePane"  Content="Closed Issues" Tag="Closed"/>
+
+
+            </NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition/>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+        </NavigationView>
+
+
+
+
+
+    </Grid>
+</Page>

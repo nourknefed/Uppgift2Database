@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="Uppgift2Database.ActivePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Uppgift2Database"
+     xmlns:models="using:DataAccess.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+   
+
+    <Grid>
+        <StackPanel>
+          
+            <TextBlock Text="Edit Issue" Margin="20" FontSize="16" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Margin="20,0" Height="40" >
+                <TextBlock Text="Enter Issue Id to Edit:" />
+                <TextBox x:Name="id" PlaceholderText=" Issue id" VerticalAlignment="Top" Margin="20,0" />
+            </StackPanel>
+            <TextBlock Text="Change Issue status" Margin="20,0,0,10"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <ComboBox  x:Name="cmbStatus" PlaceholderText="Select a Status"  Margin="20,0" Width="300" />
+                <Button x:Name="btnUpdate" Content="Update Issue" Margin="50,0"  Click="btnUpdate_Click" />
+            </StackPanel>
+            <TextBlock Text="Write Comment" Margin="20,10,0,10"/>
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="TBComment"  HorizontalAlignment="Left" Width="300" Height="50" Margin="20,0" />
+                <Button x:Name="btnSend" Content="Send" Margin="100,10" Click="btnSend_Click" />
+            </StackPanel>
+            <TextBlock Text="Active Issue" Margin="20,20,0,10" FontSize="16" FontWeight="Bold"/>
+
+            <ListView x:Name="LvActiveIssues" Margin="20,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Problem">
+                        <StackPanel Margin="5" Orientation="Horizontal">
+                            <TextBlock Text="{x:Bind Id}" Margin="5"/>
+                            <TextBlock Text="{x:Bind Customer.Name}" Margin="5"/>
+                            <TextBlock Text="{x:Bind Status}" Margin="5"/>
+                            <TextBlock Text="{x:Bind Created}" Margin="5"/>
+                         
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Details" Margin="20,20,0,10" FontSize="16" FontWeight="Bold"/>
+            <StackPanel DataContext="{Binding SelectedItem, ElementName=LvActiveIssues}" Margin="20,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Issue Id:" FontWeight="Normal"/>
+                    <TextBlock x:Name="tbId" Text="{Binding Id}" Margin="10,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Customer Name:" FontWeight="Normal"/>
+                    <TextBlock x:Name="tbCat" Text="{Binding Customer.Name}" Margin="10,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Title:" FontWeight="Normal"/>
+                    <TextBlock x:Name="tbCus" Text="{Binding Category}" Margin="10,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Description:" FontWeight="Normal"/>
+                    <TextBlock x:Name="tbDes" Text="{Binding Description}" Margin="10,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Status:" FontWeight="Normal"/>
+                    <TextBlock x:Name="tbSt" Text="{Binding Status}" Margin="10,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <TextBlock Text="Comment:" FontWeight="Normal"/>
+                    <TextBlock x:Name="tbCom" Text="{Binding Comments.Description}" Margin="10,0"/>
+                </StackPanel>
+
+
+
+
+            </StackPanel>
+           
+
+        
+
+
+
+        </StackPanel>
+       
+
+    </Grid>
+</Page>

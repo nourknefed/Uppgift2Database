@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="Uppgift2Database.CreatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Uppgift2Database"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="1. Choose or Add a new customer" Margin="40,20" FontSize="14"/>
+            <TextBlock Text="- Enter Name to Add new customer" Margin ="100,10,0,0" FontSize="13" />
+            <TextBox x:Name="TBName" Margin="100,10" Width="400" HorizontalAlignment="Left" PlaceholderText="Write customer name" PlaceholderForeground="Gray" />
+            <Button x:Name="BtnAdd" Content="Add Customer" HorizontalAlignment="Center" Click="BtnAdd_Click" />
+            <TextBlock Text="- Choose a customer to Create an issue" Margin ="100,10,0,0" FontSize="13" />
+            <ComboBox  x:Name="cmbCustomers" PlaceholderText="Select a Customer" PlaceholderForeground="Gray" Margin="100,20" Width="400"/>
+            <TextBlock Text="2. Write Title of issue" Margin ="40,10,0,0" FontSize="14" />
+            <TextBox x:Name="TBTitle" Margin="100,10" Width="400" HorizontalAlignment="Left" PlaceholderText="Title" PlaceholderForeground="Gray" />
+            <TextBlock Text="3. Write Description" Margin ="40,10,0,0" FontSize="14" />
+            <TextBox x:Name="TBDescription" Margin="100,10" Width="700" Height="200" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Description" PlaceholderForeground="Gray" />
+            <Button x:Name="BtnCreate" Content="Create Issue" HorizontalAlignment="Center" FontWeight="Bold" Click="BtnCreate_Click"/>
+        </StackPanel>
+
+
+    </Grid>
+</Page>
